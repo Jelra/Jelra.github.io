@@ -105,7 +105,7 @@ body {
 /* Hero Section: Aquí se configuró 2.jpg como fondo completo */
 .hero {
     position: relative;
-    background-image: url('img/5.jpg'); /* imagen fondo completo */
+    background-image: url('5.jpg'); /* imagen fondo completo */
     background-size: cover;          /*  la foto cubre toda la sección sin deformarse */
     background-position: center;     /* foto centrada vertical y horizontalmente */
     background-repeat: no-repeat;
@@ -236,7 +236,7 @@ body {
     position: relative;
      background-size: cover;          /*  la foto cubre toda la sección sin deformarse */
     background-position: center;     /* foto centrada vertical y horizontalmente */
-    background-image: url('2.jpg'); /* imagen fondo completo */
+    background-image: url('2.JPG'); /* imagen fondo completo */
     background-repeat: no-repeat;
     color: var(--white);
     padding: 220px 0;                /* Espaciado  hacia arriba y abajo */
