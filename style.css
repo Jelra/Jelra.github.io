@@ -1,4 +1,4 @@
-﻿/* CSS - Diseño con 2.jpg como fondo completo */
+/* CSS - Diseño Adaptativo (Responsive) */
 
 :root {
     --primary-color: #2c3e50;
@@ -6,30 +6,17 @@
     --text-color: #333333;
     --light-bg: #f9f9f9;
     --white: #ffffff;
-    /* Capa oscura semitransparente para que las letras blancas se lean perfectamente */
     --dark-overlay: rgba(20, 30, 40, 0.65); 
-}
-
-/* Ajuste para que la nueva imagen de logo quepa perfectamente */
-.nav-logo img.logo-img {
-    height: 45px;      /* Ajusta este valor si lo quieres más alto o más bajo */
-    width: auto;        /* Mantiene la proporción de la imagen para que no se estire */
-    display: block;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-/* Separación entre la imagen del logo y el texto de al lado */
-.nav-logo .logo-text {
-    margin-left: 10px;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -56,7 +43,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 70px;
+    min-height: 70px;
     background-color: var(--white);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     z-index: 1000;
@@ -66,7 +53,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100%;
+    min-height: 70px;
 }
 
 .nav-logo a {
@@ -77,11 +64,16 @@ body {
     font-weight: 700;
     font-size: 1.2rem;
     letter-spacing: 1px;
-
 }
 
-.nav-logo svg {
-    margin-right: 10px;
+.nav-logo img.logo-img {
+    height: 45px;
+    width: auto;
+    display: block;
+}
+
+.nav-logo .logo-text {
+    margin-left: 10px;
 }
 
 .nav-links {
@@ -102,13 +94,333 @@ body {
     color: var(--accent-color);
 }
 
-/* Hero Section: Aquí se configuró 2.jpg como fondo completo */
+/* Hero Section */
 .hero {
     position: relative;
-    background-image: url('5.jpg'); /* imagen fondo completo */
-    background-size: cover;          /*  la foto cubre toda la sección sin deformarse */
-    background-position: center;     /* foto centrada vertical y horizontalmente */
+    background-image: url('5.jpg');
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
+    color: var(--white);
+    padding: 120px 0;
+    text-align: center;
+}
+
+.hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--dark-overlay);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.subtitle {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.hero-desc {
+    font-size: 1.2rem;
+    max-width: 650px;
+    margin: 0 auto 35px;
+    font-weight: 300;
+    opacity: 0.95;
+}
+
+/* Botones */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #c49f2e;
+    transform: translateY(-2px);
+}
+
+.btn-light {
+    background-color: var(--white);
+    color: var(--primary-color);
+}
+
+.btn-light:hover {
+    background-color: #eeeeee;
+    transform: translateY(-2px);
+}
+
+.btn-link {
+    color: var(--accent-color);
+    padding: 0;
+    font-size: 0.95rem;
+}
+
+.btn-link:hover {
+    text-decoration: underline;
+}
+
+/* Welcome Section */
+.welcome-section {
+    padding: 80px 0 40px;
+}
+
+.welcome-section h2 {
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.section-intro {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.3rem;
+    color: #666;
+}
+
+/* Events Grid Section & Slider */
+.events-section {
+    padding: 40px 0 80px;
+    background-color: var(--light-bg);
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+}
+
+.events-slider-wrapper {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 15px 5px;
+    scrollbar-width: none; 
+}
+
+.events-slider-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.events-slider-wrapper .event-card {
+    flex: 0 0 calc(33.333% - 20px);
+    min-width: 280px;
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.card-image {
+    height: 220px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.card-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-content h3 {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.event-time {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.event-text {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+/* Flechas de Navegación */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: 2px solid var(--accent-color);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.slider-arrow:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.arrow-left {
+    left: -20px;
+}
+
+.arrow-right {
+    right: -20px;
+}
+
+/* Call to Action */
+.cta-section {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 70px 0;
+}
+
+.cta-section h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.cta-section p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    opacity: 0.8;
+}
+
+/* Footer */
+footer {
+    background-color: #1a252f;
+    color: #a0aab2;
+    padding: 40px 0;
+    font-size: 0.9rem;
+}
+
+.footer-links {
+    margin-top: 15px;
+}
+
+.footer-links a {
+    color: #a0aab2;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer-links a:hover {
+    color: var(--white);
+}
+
+/* ==========================================================================
+   MEDIA QUERIES - RESPONSIVE DESIGN (Tablets y Dispositivos Móviles)
+   ========================================================================== */
+
+@media (max-width: 992px) {
+    .events-slider-wrapper .event-card {
+        flex: 0 0 calc(50% - 15px);
+    }
+    .arrow-left { left: -10px; }
+    .arrow-right { right: -10px; }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 110px;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        justify-content: center;
+        padding: 10px 0;
+    }
+
+    .nav-links {
+        gap: 15px;
+        margin-top: 8px;
+    }
+
+    .hero {
+        padding: 80px 0;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+    }
+
+    .hero-desc {
+        font-size: 1rem;
+    }
+
+    .welcome-section {
+        padding: 50px 0 30px;
+    }
+
+    .welcome-section h2 {
+        font-size: 2rem;
+    }
+
+    .section-intro {
+        font-size: 1.1rem;
+    }
+
+    .events-slider-wrapper .event-card {
+        flex: 0 0 85%;
+    }
+
+    .slider-arrow {
+        display: none; /* Deslizamiento táctil en móviles */
+    }
+
+    .cta-section {
+        padding: 50px 0;
+    }
+
+    .cta-section h2 {
+        font-size: 1.6rem;
+    }
+}
     color: var(--white);
     padding: 160px 0;                /* Espaciado  hacia arriba y abajo */
     text-align: center;
