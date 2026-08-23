@@ -15,13 +15,12 @@
 <body>
 
     <!-- Barra de Navegación Superior -->
-    <!-- Barra de Navegación Superior -->
     <nav class="navbar">
         <div class="container nav-container">
             <!-- Logo de la Iglesia -->
             <div class="nav-logo">
                 <a href="mirov.html">
-                    <img src="logo.jpg"   alt="Logo Iglesia Nazareth" class="logo-img">
+                    <img src="logo.jpg" alt="Logo Iglesia Nazareth" class="logo-img">
                     <span class="logo-text">MIROV</span>
                 </a>
             </div>
@@ -34,7 +33,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section (Sección Principal Inicial con Imagen de Fondo completa) -->
+    <!-- Hero Section -->
     <header class="hero">
         <div class="overlay"></div>
         <div class="container hero-content">
@@ -53,7 +52,8 @@
         </div>
     </section>
 
-   <section id="eventos" class="events-section">
+    <!-- Eventos Section -->
+    <section id="eventos" class="events-section">
         <div class="container slider-container">
             
             <button class="slider-arrow arrow-left" id="prevBtn" aria-label="Anterior">&#10094;</button>
@@ -90,18 +90,17 @@
                     </div>
                 </div>
 
-               <div class="event-card animate-card">
+                <div class="event-card animate-card">
                     <div class="card-image" style="background-image: url('5.jpeg');"></div>
                     <div class="card-content">
                         <h3>Gala de Ordenación y Graduación Teológica</h3>
                         <p class="event-time">🕒 08:30 hrs | 📍 Auditorio</p>
-                        <p class="event-text">Una noche inolvidable de fe y propósito. Toca aquí para ver los mejores momentos en nuestro Instagram..</p>
+                        <p class="event-text">Una noche inolvidable de fe y propósito. Toca aquí para ver los mejores momentos en nuestro Instagram.</p>
                         <a href="https://www.instagram.com/mirovciudadfiel/p/DcOmiFLDosm/" target="_blank" class="btn btn-link">Ver horarios en Instagram &rarr;</a>
-                      </div>
+                    </div>
                 </div>
 
-                
-         <div class="event-card animate-card">
+                <div class="event-card animate-card">
                     <div class="card-image" style="background-image: url('5.jpeg');"></div>
                     <div class="card-content">
                         <h3>Ministerio de Hombres</h3>
@@ -109,21 +108,22 @@
                         <p class="event-text">Un día especial para la adoración y recibimiento de la palabra de Dios.</p>
                         <a href="https://proximamente" target="_blank" class="btn btn-link">Ver horarios en Instagram &rarr;</a>
                     </div>
+                </div>
+
             </div>
-       </div>
 
             <button class="slider-arrow arrow-right" id="nextBtn" aria-label="Siguiente">&#10095;</button>
-            
+        </div>
+    </section>
 
-<!-- Seccion de Registro  -->
-<section class="cta-section">
-    <div class="container text-center">
-        <h2>¿Quieres formar parte de la Iglesia de Cristo?</h2>
-        <p>Déjanos tus datos para darte una bienvenida oficial y ayudarte a encontrar un grupo de crecimiento para ti.</p>
-        <!-- Enlace a tu formulario de consolidación o nuevos integrantes -->
-        <a href="https://forms.gle/qCLna3xV8HYJ8xtd9" target="_blank" class="btn btn-light">¡Regístrate Aquí y Conéctate!</a>
-    </div>
-</section>
+    <!-- Sección de Registro (CTA) -->
+    <section class="cta-section">
+        <div class="container text-center">
+            <h2>¿Quieres formar parte de la Iglesia de Cristo?</h2>
+            <p>Déjanos tus datos para darte una bienvenida oficial y ayudarte a encontrar un grupo de crecimiento para ti.</p>
+            <a href="https://forms.gle/qCLna3xV8HYJ8xtd9" target="_blank" class="btn btn-light">¡Regístrate Aquí y Conéctate!</a>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer>
@@ -133,57 +133,31 @@
         </div>
     </footer>
 
-<script>
+    <!-- Lógica de Navegación del Carrusel -->
+    <script>
         document.addEventListener("DOMContentLoaded", function() {
             const slider = document.getElementById("sliderWrapper");
             const prevBtn = document.getElementById("prevBtn");
             const nextBtn = document.getElementById("nextBtn");
 
-            // Cantidad de píxeles a desplazar en cada clic (aprox. el ancho de una tarjeta + gap)
             const scrollAmount = 340; 
 
-            // Función para avanzar (Flecha Derecha)
             nextBtn.addEventListener("click", () => {
-                // slider.scrollLeft: posición actual del scroll
-                // slider.clientWidth: ancho visible del contenedor
-                // slider.scrollWidth: ancho total real de todo el contenido interno
-                // Tolerancia de 5px para evitar problemas de redondeo en navegadores
                 if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 5) {
-                    // Si llegó al final, vuelve al puro principio con un deslizamiento elegante
-                    slider.scrollTo({
-                        left: 0,
-                        behavior: "smooth"
-                    });
+                    slider.scrollTo({ left: 0, behavior: "smooth" });
                 } else {
-                    // Si no ha llegado al final, avanza normalmente
-                    slider.scrollBy({
-                        left: scrollAmount,
-                        behavior: "smooth"
-                    });
+                    slider.scrollBy({ left: scrollAmount, behavior: "smooth" });
                 }
             });
 
-            // Función para retroceder (Flecha Izquierda)
             prevBtn.addEventListener("click", () => {
                 if (slider.scrollLeft <= 5) {
-                    // Si ya está en el principio, salta automáticamente al final
-                    slider.scrollTo({
-                        left: slider.scrollWidth,
-                        behavior: "smooth"
-                    });
+                    slider.scrollTo({ left: slider.scrollWidth, behavior: "smooth" });
                 } else {
-                    // Si no está en el principio, retrocede normalmente
-                    slider.scrollBy({
-                        left: -scrollAmount,
-                        behavior: "smooth"
-                    });
+                    slider.scrollBy({ left: -scrollAmount, behavior: "smooth" });
                 }
             });
         });
     </script>
-</body>
-</html>
-</body>
-</html>
 </body>
 </html>
